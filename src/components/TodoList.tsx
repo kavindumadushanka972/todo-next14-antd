@@ -22,8 +22,8 @@ const TodoList = () => {
   return (
     <div>
       {list.map((todo) => (
-        <>
-          <div className="d-flex justify-content-between" key={todo.id}>
+        <div key={todo.id}>
+          <div className="d-flex justify-content-between">
             <Text>{todo.name}</Text>
             <div className="d-flex">
               <div className="mx-2">
@@ -45,7 +45,7 @@ const TodoList = () => {
             </div>
           </div>
           <hr />
-        </>
+        </div>
       ))}
     </div>
   );
