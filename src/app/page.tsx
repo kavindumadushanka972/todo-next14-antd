@@ -5,6 +5,7 @@ import { Card } from 'antd';
 import { Col, Row } from 'reactstrap';
 
 import AddTodoForm from '@/components/AddTodoForm';
+import TodoList from '@/components/TodoList';
 
 const page = () => {
   return (
@@ -17,7 +18,9 @@ const page = () => {
         </Col>
 
         <Col xxl="6" xl="6" lg="6" md="12" sm="12" xs="12" className='mt-3'>
-          <Card title="Todo List"></Card>
+          <Card title="Todo List">
+            <TodoList />
+          </Card>
         </Col>
       </Row>
     </div>

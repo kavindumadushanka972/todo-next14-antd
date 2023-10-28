@@ -1,15 +1,17 @@
 'use client';
 import React from 'react';
 import { Button, Form, Input } from 'antd';
+import { addTodo } from '@/redux/features/todo-slice';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@/redux/store';
 
-/**
- * Render a form for adding a new todo.
- *
- * @return {ReactElement} The rendered form component.
- */
 const AddTodoForm: React.FC = () => {
+  const [form] = Form.useForm();
+  const dispatch = useDispatch<AppDispatch>();
+
   const onFinish = (values: any) => {
-    console.log('Success:', values);
+    dispatch(addTodo({ id: Date.now(), name: values.task, done: false }));
+    form.resetFields();
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -22,6 +24,7 @@ const AddTodoForm: React.FC = () => {
 
   return (
     <Form
+      form={form}
       name="add-todo-form"
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
